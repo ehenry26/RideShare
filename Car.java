@@ -26,9 +26,9 @@ public class Car {
     public boolean hasRoom(){
         return passengers.size() < 3;
     }
-    
+
     public String toString(){
         return super.toString() + "\n" + "Destination: " + destination + ", Current Location: " + currentLocation + 
-        ", Going Right? " + direction + ", Passengers: " + passengers;
+        ", Going Right? " + direction + ", Passengers:" + passengers;
     }
 }
