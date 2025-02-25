@@ -3,7 +3,7 @@ public class Car {
     //fields
     private int destination;
     private int currentLocation;
-    private boolean direction;
+    private boolean direction; //true for right, false for left
     private ArrayList<Person> passengers;
 
     //constructor
@@ -18,9 +18,38 @@ public class Car {
     public void addPassenger(Person p){
         if(passengers.size() >= 3){
             System.out.println("ERROR: No Room!");
-        } else {
+        } else if(p.getDirection() != direction){
+            System.out.println("ERROR: Trying to add person in wrong direction!");
+        }else{
             passengers.add(p);
         }
+    }
+
+    public void move(){
+        if(currentLocation == destination){
+            return; //kick out early before trying to move
+        }
+
+        if(direction == true){
+            currentLocation++;
+        } else {
+            currentLocation--;
+        }
+    }
+    /**
+     * Method for handing back a person that is eligible to be dropped off.
+     * This removes person from the car as well.
+     * There may be multiple people eligible for dropoff but this only returns one.
+     * @return one Person eligible to be dropped off, null if nobody is avaliable
+     */
+    public Person unload(){
+        for(int i = 0; i < passengers.size(); i++){
+            Person a = passengers.get(i);
+            if(a.getDestination() == currentLocation){
+                return passengers.remove(i);
+            }
+        }
+        return null;
     }
 
     public boolean hasRoom(){
