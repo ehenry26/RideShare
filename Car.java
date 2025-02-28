@@ -56,6 +56,13 @@ public class Car {
         return passengers.size() < 3;
     }
 
+    public int getDestination(){
+        return destination;
+    }
+    
+    public int getCurrentLocation(){
+        return currentLocation;
+    }
     public String toString(){
         return super.toString() + "\n" + "Destination: " + destination + ", Current Location: " + currentLocation + 
         ", Going Right? " + direction + ", Passengers:" + passengers + "\n";

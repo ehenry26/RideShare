@@ -6,7 +6,7 @@ public class Person{
 
     //constructor
     public Person(int myDestination, int myStart){
-        destination = myDestination;
+        destination = myDestination; 
         startLocation = myStart;
         if(destination > startLocation){
             direction = true;
@@ -17,7 +17,7 @@ public class Person{
 
     //methods
     public int getDestination(){
-        return destination;
+        return destination; 
     }
     public boolean getDirection(){
         return direction;

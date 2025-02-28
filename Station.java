@@ -2,8 +2,8 @@ import java.util.*;
 public class Station {
     //fields
     private int num;
-    private ArrayList<Person> standByL;//waiting person
-    private ArrayList<Person> standByR;//waiting person
+    private ArrayList<Person> standByL; //waiting person
+    private ArrayList<Person> standByR; //waiting person
     private ArrayList<Person> taken; //taken person
 
 
@@ -31,7 +31,7 @@ public class Station {
      * @return a single person traveling to the right-- returns null if nobody is avaliable
      */
     //next right person
-    public Person nextR(){
+    public Person getnextR(){
         if(standByR.size() > 0){
             return standByR.remove(0);
         } else {
@@ -44,7 +44,7 @@ public class Station {
      * @return a single person traveling to the left-- returns null if nobody is avaliable
      */
     //next right person
-    public Person nextL(){
+    public Person getnextL(){
         if(standByL.size() > 0){
             return standByL.remove(0);
         } else {
