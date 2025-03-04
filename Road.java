@@ -77,10 +77,25 @@ public class Road {
      */
     public void move(){
         //unload all eligible people from cars to stations
-        
+        for(Car c : cars){
+            //this gives an eligible person to remove or null if nobody is available 
+            while(true){
+            Person p = c.unload();
+            if(p != null){
+                int location = c.getCurrentLocation();
+                stations[location].addPerson(p);
+            } else {
+                break;
+            }
+        }
+    }
         //load all eligible people from stations to cars
+        //going to be similar, but now looping through stations and putting in cars
 
         //move all the cars
+        for(Car c : cars){
+            c.move();
+        }
 
         
     }
