@@ -51,7 +51,9 @@ public class Car {
         }
         return null;
     }
-
+    public boolean getDirection(){
+        return direction;
+    }
     public boolean hasRoom(){
         return passengers.size() < 3;
     }

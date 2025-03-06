@@ -5,7 +5,9 @@ public class RideShareTester {
         r.fillCars(5);
         r.fillStations(10);
         System.out.println("-----------");
-        
+        System.out.println(r);
+        r.move();
+        System.out.println(r);
 
         
     }

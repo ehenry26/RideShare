@@ -68,10 +68,31 @@ public class Road {
                 break;
             }
         }
+        }for(Car c : cars){
+            int CurLoc = c.getCurrentLocation();
+            Station s = stations[CurLoc];
+            while(c.hasRoom()){
+            if(c.getDirection()){
+                Person p = s.getnextR();
+                if(p != null){ //later check for has room
+                    c.addPassenger(p);
+                } else {
+                    break;
+                }
+            } else {
+                Person p = s.getnextL();
+                if(p != null){ //later check for has room
+                    c.addPassenger(p);
+                } else {
+                    break;
+                }
+            }
+
+        }
     }
         //load all eligible people from stations to cars
         //going to be similar, but now looping through stations and putting in cars
-
+        //car have room? car going same direction?
         //move all the cars
         for(Car c : cars){
             c.move();
