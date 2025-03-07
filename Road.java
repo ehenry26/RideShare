@@ -51,15 +51,8 @@ public class Road {
         }
         return s;
     }
-    /**
-     * This is the big method that moves all cars, unloads and loads passengers for one 'tick'
-     * 
-     */
-    public void move(){
-        //unload all eligible people from cars to stations
-        for(Car c : cars){
-            //this gives an eligible person to remove or null if nobody is available 
-            while(true){
+    private void unloadSpecificCar(Car c){
+        while(true){
             Person p = c.unload();
             if(p != null){
                 int location = c.getCurrentLocation();
@@ -68,31 +61,46 @@ public class Road {
                 break;
             }
         }
-        }for(Car c : cars){
-            int CurLoc = c.getCurrentLocation();
-            Station s = stations[CurLoc];
-            while(c.hasRoom()){
-            if(c.getDirection()){
-                Person p = s.getnextR();
-                if(p != null){ //later check for has room
-                    c.addPassenger(p);
-                } else {
-                    break;
-                }
-            } else {
-                Person p = s.getnextL();
-                if(p != null){ //later check for has room
-                    c.addPassenger(p);
-                } else {
-                    break;
-                }
-            }
-
-        }
     }
+    private void loadSpecificCar(Car c){
+        int CurLoc = c.getCurrentLocation();
+        Station s = stations[CurLoc];
+        while(c.hasRoom()){
+        if(c.getDirection()){
+            Person p = s.getnextR();
+            if(p != null){ //later check for has room
+                c.addPassenger(p);
+            } else {
+                break;
+            }
+        } else {
+            Person p = s.getnextL();
+            if(p != null){ //later check for has room
+                c.addPassenger(p);
+            } else {
+                break;
+            }
+        }
+
+    }
+}
+    /**
+     * This is the big method that moves all cars, unloads and loads passengers for one 'tick'
+     * 
+     */
+    public void move(){
+        //unload all eligible people from cars to stations
+        for(Car c : cars){
+            //this gives an eligible person to remove or null if nobody is available 
+           unloadSpecificCar(c);
+        
         //load all eligible people from stations to cars
         //going to be similar, but now looping through stations and putting in cars
-        //car have room? car going same direction?
+        //car have room? car going same direction? 
+
+        }for(Car c : cars){
+            loadSpecificCar(c);
+        }
         //move all the cars
         for(Car c : cars){
             c.move();
@@ -100,6 +108,6 @@ public class Road {
 
         
     }
-
-    }
+}
+    
 
