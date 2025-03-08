@@ -104,9 +104,28 @@ public class Road {
         //move all the cars
         for(Car c : cars){
             c.move();
+            if(c.getCurrentLocation() == c.getDestination()){
+                removeCar(c);
+            }
         }
 
         
+    } 
+    public boolean carIsAtDest(Car c){
+        if(c.getDestination() == c.getCurrentLocation()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public void removeCar(Car c){
+        ArrayList<Car> finishedRoute = new ArrayList<Car>();
+        for(Car cr : cars){
+            if(cr.getCurrentLocation() == cr.getDestination()){
+                cr.unload();
+                finishedRoute.add(cr);
+            }
+        }
     }
 }
     
