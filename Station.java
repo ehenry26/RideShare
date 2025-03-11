@@ -57,10 +57,10 @@ public class Station {
     }
 
     public String toString(){
-        String s = "Station: " + num + "\n";
-        s += "Rightbound: " + standByR.toString() + "\n";
-        s += "Leftbound: " + standByL.toString() + "\n";
-        s += "Taken: " + completed.toString();
+        String s = "Station #" + num + "\n";
+        s += "Rightbound:" + standByR.toString() + "\n";
+        s += "Leftbound:" + standByL.toString() + "\n";
+        s += "Taken:" + completed.toString() + "\n";
         return s;
     }
 

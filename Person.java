@@ -26,6 +26,6 @@ public class Person{
         return startLocation;
     }
     public String toString(){
-        return "\n" + super.toString() + "\n" + "Start: " + startLocation + ", Destination: " + destination + ", Going right? " + direction + "\n";
+        return "\n" + super.toString() + "\n" + "(a)Start: " + startLocation + "\n" + "(b)Destination: " + destination + "\n" + "(c)Going right? " + direction + "\n";
     }
 }
