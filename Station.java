@@ -4,7 +4,7 @@ public class Station {
     private int num;
     private ArrayList<Person> standByL; //waiting person
     private ArrayList<Person> standByR; //waiting person
-    private ArrayList<Person> taken; //taken person
+    private ArrayList<Person> completed; //taken person
 
 
     //constructor
@@ -12,14 +12,14 @@ public class Station {
         num = myNum;
         standByL = new ArrayList<Person>();
         standByR = new ArrayList<Person>();
-        taken = new ArrayList<Person>();
+        completed = new ArrayList<Person>();
     }
 
 
     //methods
     public void addPerson(Person p){
         if(p.getDestination() == num){
-            taken.add(p);
+            completed.add(p);
         } else if(p.getDirection()){
             standByR.add(p);
         } else {
@@ -53,14 +53,14 @@ public class Station {
     }
 
     public int takenCount(){
-        return taken.size();
+        return completed.size();
     }
 
     public String toString(){
         String s = "Station: " + num + "\n";
         s += "Rightbound: " + standByR.toString() + "\n";
         s += "Leftbound: " + standByL.toString() + "\n";
-        s += "Taken: " + taken.toString();
+        s += "Taken: " + completed.toString();
         return s;
     }
 

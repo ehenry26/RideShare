@@ -6,7 +6,7 @@ public class Road {
      private ArrayList<Car> cars;
      
      
-     private static final int NUMSTATIONS = 10;
+     private static final int NUMSTATIONS = 32;
 
 
     //constructor
@@ -111,6 +111,13 @@ public class Road {
 
         
     } 
+    public int finishedRoute(){
+        int total = 0;
+        for(Station s : stations){
+            total += s.takenCount();
+        }
+        return total;
+    }
     public boolean carIsAtDest(Car c){
         if(c.getDestination() == c.getCurrentLocation()){
             return true;
