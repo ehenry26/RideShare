@@ -1,7 +1,7 @@
 public class RideShareTester {
     public static void main(String[] args) {
         Road r = new Road();
-        r.fillCars(40);
+        r.fillCars(20);
         r.fillStations(50);
         System.out.println("---------------");
         System.out.println("Before moving:" + "\n---------------" + "\n" + r.toString());
